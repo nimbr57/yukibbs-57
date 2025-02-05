@@ -4,7 +4,7 @@
     <title>連番を簡単に生成！！</title>
 
     <style>
-      /* 基本スタイル */
+/* 基本スタイル */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -14,14 +14,49 @@ body {
     transition: background-color 0.3s, color 0.3s; /* スムーズなトランジション */
 }
 
-h1, h2 {
-    color: #1A472A; /* 見出しの色 */
-}
-
 /* ダークモードスタイル */
 body.dark {
     background-color: #111; /* ダークモードの背景色 */
     color: #ddd; /* ダークモードの文字色 */
+}
+
+/* フォームスタイル */
+form {
+    background-color: #fff; /* ライトモードのフォーム背景色 */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, color 0.3s; /* スムーズなトランジション */
+}
+
+form.dark {
+    background-color: #222; /* ダークモードのフォーム背景色 */
+}
+
+/* テキストエリアスタイル */
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical;
+    transition: background-color 0.3s, color 0.3s; /* スムーズなトランジション */
+}
+
+textarea.dark {
+    background-color: #444; /* ダークモードのテキストエリア背景色 */
+    color: #ddd; /* ダークモードのテキストエリア文字色 */
+    border-color: #666; /* ダークモードのテキストエリアボーダー色 */
+}
+
+/* ラベルスタイル */
+label {
+    color: #333; /* ライトモードのラベル色 */
+    transition: color 0.3s; /* スムーズなトランジション */
+}
+
+label.dark {
+    color: #ddd; /* ダークモードのラベル色 */
 }
 
 /* ボタンスタイル */
@@ -39,68 +74,9 @@ button:hover {
     background-color: #155e3b; /* ホバー時の色 */
 }
 
-/* フォームスタイル */
-form {
-    background-color: #fff; /* フォームの背景色 */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    margin: 20px 0;
-}
-
-form.dark {
-    background-color: #222; /* ダークモードのフォーム背景色 */
-}
-
-/* テキストエリアスタイル */
-textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    resize: vertical;
-}
-
-textarea.dark {
-    background-color: #444; /* ダークモードのテキストエリア背景色 */
-    color: #ddd; /* ダークモードのテキストエリア文字色 */
-    border-color: #666; /* ダークモードのテキストエリアボーダー色 */
-}
-
 /* チェックボックススタイル */
 input[type="checkbox"] {
     margin-right: 10px;
-}
-
-/* 投稿リストスタイル */
-h2 {
-    margin-top: 20px;
-}
-
-.post {
-    background-color: #fff; /* 投稿の背景色 */
-    padding: 10px;
-    border-radius: 5px;
-    margin: 10px 0;
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
-}
-
-.post.dark {
-    background-color: #333; /* ダークモードの投稿背景色 */
-}
-
-/* ダークモードのスタイルを適用 */
-.dark input,
-.dark textarea,
-.dark button,
-.dark select {
-    background-color: #222; /* ダークモードの入力フィールド背景色 */
-    color: #ddd; /* ダークモードの入力フィールド文字色 */
-    border: 1px solid #666; /* ダークモードのボーダー色 */
-}
-
-.dark a {
-    color: cyan; /* ダークモードのリンク色 */
 }
 
 /* アニメーションスタイル */
@@ -184,9 +160,8 @@ h2 {
         id="filter"
         name="verify"
       />
-      <h2>投稿</h2>
     </form>
-
+    <h2>投稿</h2>
     <div id="messages"></div>
     <script>
       let submitbtn = document.getElementById("submit");
