@@ -4,54 +4,135 @@
     <title>連番を簡単に生成！！</title>
 
     <style>
-      .example4 {
-        background: linear-gradient(
-            to right,
-            #e60000,
-            #f39800,
-            #fff100,
-            #009944,
-            #0068b7,
-            #1d2088,
-            #920783,
-            #e60000
-          )
-          0 / 200%;
-        animation: 5s example4 linear infinite;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-      @keyframes example4 {
-        100% {
-          background-position: 200%;
-        }
-      }
+      /* 基本スタイル */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f0f0; /* ライトモードの背景色 */
+    color: #333; /* ライトモードの文字色 */
+    transition: background-color 0.3s, color 0.3s; /* スムーズなトランジション */
+}
 
-      .dark {
-        background-color: #111;
-        color: #ddd;
-      }
+h1, h2 {
+    color: #1A472A; /* 見出しの色 */
+}
 
-      .dark input,
-      .dark textarea,
-      .dark button,
-      .dark select {
-        background-color: #111;
-        color: #ddd;
-        border: #ddd 1px solid;
-      }
+/* ダークモードスタイル */
+body.dark {
+    background-color: #111; /* ダークモードの背景色 */
+    color: #ddd; /* ダークモードの文字色 */
+}
 
-      .dark a {
-        color: cyan;
-      }
+/* ボタンスタイル */
+button {
+    background-color: #1A472A; /* ボタンの背景色 */
+    color: white; /* ボタンの文字色 */
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #155e3b; /* ホバー時の色 */
+}
+
+/* フォームスタイル */
+form {
+    background-color: #fff; /* フォームの背景色 */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+}
+
+form.dark {
+    background-color: #222; /* ダークモードのフォーム背景色 */
+}
+
+/* テキストエリアスタイル */
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical;
+}
+
+textarea.dark {
+    background-color: #444; /* ダークモードのテキストエリア背景色 */
+    color: #ddd; /* ダークモードのテキストエリア文字色 */
+    border-color: #666; /* ダークモードのテキストエリアボーダー色 */
+}
+
+/* チェックボックススタイル */
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+/* 投稿リストスタイル */
+h2 {
+    margin-top: 20px;
+}
+
+.post {
+    background-color: #fff; /* 投稿の背景色 */
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.post.dark {
+    background-color: #333; /* ダークモードの投稿背景色 */
+}
+
+/* ダークモードのスタイルを適用 */
+.dark input,
+.dark textarea,
+.dark button,
+.dark select {
+    background-color: #222; /* ダークモードの入力フィールド背景色 */
+    color: #ddd; /* ダークモードの入力フィールド文字色 */
+    border: 1px solid #666; /* ダークモードのボーダー色 */
+}
+
+.dark a {
+    color: cyan; /* ダークモードのリンク色 */
+}
+
+/* アニメーションスタイル */
+.example4 {
+    background: linear-gradient(
+        to right,
+        #e60000,
+        #f39800,
+        #fff100,
+        #009944,
+        #0068b7,
+        #1d2088,
+        #920783,
+        #e60000
+    ) 0 / 200%;
+    animation: 5s example4 linear infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@keyframes example4 {
+    100% {
+        background-position: 200%;
+    }
+}
+
     </style>
   </head>
   <body>
     <button id="darkmodeBtn">ダークモードきりかえ</button>
     <div class="example4"><h1>掲示板</h1></div>
-    新規さんへ、先ずは挨拶をしましょう。シード値は自分のidを決めるものでパスワードのようなものです。<br />今の話題に勇気を出して参加してみましょう！！！<br />
-    メッセージが送れない場合メッセージや名前が規制されている可能性があります。<br />
-    送信ボタンを押してから若干遅延があります<br />
+    作成者：<font color="#1A472A">ホグワーツ生徒A</font><font color="darkorange">@SspYvxs</font><font color="magenta">🦉9¾番線🚂💨</font><br>お手製なので若干送信してからのラグがあります。
     <a href="/bbs/how">使い方</a><br />
 
     <form id="form">
@@ -63,18 +144,18 @@
       <label for="message">メッセージ</label>
       <select name="command" id="command">
         <option value="" selected></option>
-        <option value="/del">/del</option>
-        <option value="/speaker">/speaker</option>
-        <option value="/topic">/topic</option>
-        <option value="/clear">/clear</option>
-        <option value="/disspeaker">/disspeaker</option>
-        <option value="/manager">/manager</option>
-        <option value="/dismanager">/dismanager</option>
-        <option value="/dismoderator">/dismoderator</option>
-        <option value="/restrict">/restrict</option>
-        <option value="/release">/release</option>
-        <option value="/prohibit">/prohibit</option>
-        <option value="/test">/test</option>
+        <option value="挨拶">やあ！僕はホグワーツからやってきた生徒Aさ！</option>
+        <option value="アバダ・ケダブラ（死の呪文！）">💀⚡️ アバダ・ケダブラ！⚡️💀</option>
+        <option value="セクタムセンプラ（敵を切り裂く魔法！）">⚔️💥 セクタムセンプラ！💥⚔️</option>
+        <option value="エクスペリアームス（武器を奪う呪文！）">🪄✨ エクスペリアームス！✨🪄</option>
+        <option value="ステューピファイ（敵を麻痺させる呪文！）">🌟💤 ステューピファイ！💤🌟</option>
+        <option value="プロテゴ（防御の呪文！）">🛡️🔮 プロテゴ！🔮🛡️</option>
+        <option value="インペディメンタ（動きを遅らせる呪文！）">⏳🚫 インペディメンタ！🚫⏳</option>
+        <option value="ディフィンド（切断の呪文！）">✂️🪄 ディフィンド！🪄✂️</option>
+        <option value="アロホモラ（鍵を開ける呪文！）">🔑🚪 アロホモラ！🚪🔑</option>
+        <option value="エクスペクト・パトローナム（守護霊を呼び出す呪文！）">🦌✨ エクスペクト・パトローナム！✨🦌</option>
+        <option value="リディクラス（ボガートを笑わせる呪文！）">😂🎭 リディクラス！🎭😂</option>
+        <option value="ウィンガーディアム・レビオーサ（物体を浮遊させる呪文！）">🪄✨ ウィンガーディアム・レビオーサ！✨🪄</option>
       </select>
       <textarea
         name="message"
